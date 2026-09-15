@@ -1,0 +1,18 @@
+
+
+h1{
+     background-color: red;
+     padding: 15px;
+     
+}
+
+
+nav{
+      background-color: aqua;
+      padding: 30px;
+}
+
+nav a{
+      padding: 20px;
+      text-decoration: none;
+}
