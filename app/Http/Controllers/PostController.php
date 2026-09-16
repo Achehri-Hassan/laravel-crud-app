@@ -52,9 +52,13 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Post $id)
     {
         //
+
+        $post = Post::findOrFail($id);
+        return view("posts.edit" , compact("post"));
+        
     }
 
     /**
@@ -68,8 +72,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
-    {
-        //
-    }
+   public function destroy(Post $post)
+{
+    $post->delete();
+
+    return redirect()
+        ->route('posts.index')
+        ->with('success', 'Post deleted successfully!');
+}
 }
