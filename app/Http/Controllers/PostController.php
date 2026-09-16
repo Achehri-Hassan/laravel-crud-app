@@ -64,16 +64,14 @@ class PostController extends Controller
     {
         //
 
-         $validated = $request->validate([
-        'title' => 'required',
-        'body' => 'required',
-    ]);
+        $validated = $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
 
-    $post->update($validated);
+        $post->update($validated);
 
-    return redirect()
-        ->route('posts.index')
-        ->with('success', 'Post updated successfully!');
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
     }
 
     /**
