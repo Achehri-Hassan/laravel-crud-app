@@ -5,17 +5,25 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Http\Controllers\PostController;
 
 // Get route example
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 
 });
 
-Route::get("/contact" , function(){
-      return view("contact");
-});
+Route::resource("posts" , PostController::class);
 
+
+
+// Route::resourcec("posts" , PostController::class);
+
+
+
+// Route::get("/contact" , function(){
+//       return view("contact");
+// });
 
 
 //  started to learn routes
@@ -83,24 +91,24 @@ Route::get("/contact" , function(){
 
 
 // Post Route example 
-Route::post("/formsubmited" , function(Request $request) {
+// Route::post("/formsubmited" , function(Request $request) {
      
-      $request->validate([
+//       $request->validate([
 
-          "full_name" => "required|min:3|max:30",
-          "email" => "required|min:3|max:30|email",
+//           "full_name" => "required|min:3|max:30",
+//           "email" => "required|min:3|max:30|email",
      
-      ]);
+//       ]);
      
 
-     $full_name = $request->input("full_name");
-     $email = $request->input("email");
+//      $full_name = $request->input("full_name");
+//      $email = $request->input("email");
 
-     // return "Your full name is $full_name, and your email is $email";
-     return "your full name is $full_name , and  your email is $email";
+//      // return "Your full name is $full_name, and your email is $email";
+//      return "your full name is $full_name , and  your email is $email";
      
        
-})->name("formsubmited");
+// })->name("formsubmited");
 
 
 
